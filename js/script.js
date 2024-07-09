@@ -12,15 +12,26 @@ function numbers  () {
             boxnumber.push(randomNumbers);
         }
     }
-    //RESTITUISCO IL VALORE GENERATO NELL'ARRAY//
-    return boxnumber;
+
 }
 
 numbers ();
 //RECUPERO L'ELEMENTO DAL DOM//
 let numeri  = document.getElementById('numeri');
-boxnumber.innerHtml = 0;
-//APPENDO IL DOM//
-numeri.append(boxnumber);
+numbers.innerHtml = boxnumber.join(' ');
 
-setTimeout
+let clock = setTimeout (function numero () {
+    numbers.innerHtml = '';
+} , 2000);
+
+const persona = setTimeout (function numero () {
+
+    for(i = 1; i<=5; i++) {
+
+        let numero = prompt('Inserisci il valore ottenuto');
+        console.log(numero);
+    }
+} , 4000);
+ 
+  
+
