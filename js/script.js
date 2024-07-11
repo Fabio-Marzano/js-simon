@@ -26,7 +26,7 @@ document.getElementById('numbers').innerHTML = random_numbers;
 setTimeout(function () {
     document.getElementById('numbers').innerHTML = '';
 
-}, 3000);
+}, 30000);
 //GENERO SETTIMEOUT PER PERMETTERE ALL'UTENTE DI INSERIRE I SUOI NUMERI//
 setTimeout(function () {
     //CREO UN ARRAY VUOTO//
@@ -46,7 +46,7 @@ setTimeout(function () {
         }
     }
     //MOSTRO IL RISULTATO//
-    document.getElementById('numbers').innerHTML = `Hai indovinato ${guessed.length} i seguenti numeri. Sono i seguenti ${guessed}`;
+    document.getElementById('numbers').innerHTML = `Hai indovinato ${guessed.length} numeri. Sono i seguenti ${guessed}`;
 
     
     
