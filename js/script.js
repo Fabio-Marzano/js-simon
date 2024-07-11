@@ -1,37 +1,60 @@
 
-//CREO ARRAY VUOTA//
-const boxnumber = [];
-// ATTIVO LA FUNZIONE CHE MI GENERE 5 NUMERI CASUALI//
-function numbers  () {
-    //AVVIO IL CICLO CHE MI GENERA I 5 NUMERI CASUALI//
-    while(boxnumber.length < 5) {
+function generateRandomNumber() {
+    return Math.floor(Math.random() * 100 + 1);
+}
 
-        let randomNumbers = Math.floor(Math.random() * 100) + 1;
-        //CREO LA CONDIZIONE CHE PERMETTE ALL'ARRAY DI INCLUDERE TUTTI I NUMERI//
-        if(!boxnumber.includes(randomNumbers)) {
-            boxnumber.push(randomNumbers);
+function createArrayNumbers() {
+    let numbers = [];
+
+    while (numbers.length < 5) {
+
+        let num = generateRandomNumber();
+
+        if (!numbers.includes(num)) {
+            numbers.push(num);
         }
     }
 
+    return numbers;
 }
 
-numbers ();
-//RECUPERO L'ELEMENTO DAL DOM//
-let numeri  = document.getElementById('numeri');
-numbers.innerHtml = boxnumber.join(' ');
+let random_numbers = createArrayNumbers();
 
-let clock = setTimeout (function numero () {
-    numbers.innerHtml = '';
-} , 2000);
+document.getElementById('numbers').innerHTML = random_numbers;
 
-const persona = setTimeout (function numero () {
+setTimeout(function () {
+    document.getElementById('numbers').innerHTML = '';
 
-    for(i = 1; i<=5; i++) {
+}, 3000);
 
-        let numero = prompt('Inserisci il valore ottenuto');
-        console.log(numero);
+setTimeout(function () {
+
+    let user_numbers = [];
+
+    for (let i = 0; i < 5; i++) {
+
+        user_numbers.push(parseInt(prompt('Registra il tuo numero')));
     }
-} , 4000);
+
+    let guessed = [];
+
+    for (let i = 0; i <5; i++) {
+
+        if (random_numbers.includes(user_numbers[i])) {
+            guessed.push(user_numbers[i]);
+        }
+    }
+
+    document.getElementById('numbers').innerHTML = `Hai indovinato ${guessed.length} i seguenti numeri. Sono i seguenti ${guessed}`;
+
+    
+    
+
+}, 5000);
+
+
+
+
  
   
 
